@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PlatformService.Data;
+using PlatformService.Interfaces;
 
 namespace PlatformService
 {
@@ -30,6 +31,8 @@ namespace PlatformService
         {
 
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
+
+            services.AddScoped<IPlatformRepo, PlatformRepo>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -58,6 +61,8 @@ namespace PlatformService
             {
                 endpoints.MapControllers();
             });
+
+            PrepDb.PrepPopulation(app);
         }
     }
 }
