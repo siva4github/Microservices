@@ -1,0 +1,28 @@
+Dotnet
+
+// Create a new service project
+> dotnet new webapi -n PlatformService
+
+// open project in visual code
+> code -r PlatformService
+
+
+
+Docker
+
+// to check version
+> docker --version
+
+// docker build -t <your docker hubid>/<service name> .
+> docker build -t siva4dockerstore/Platformservice .
+
+> docker run -p 8080:80 -d <docker hub id>/<service name>
+> docker ps
+> docker stop dd2
+> docker start dd2
+> docker push <docker hub id>/<service name>
+
+Kubernet    
+
+
+
