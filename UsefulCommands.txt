@@ -1,48 +1,64 @@
+# Free CHEAT SHEET - Will give all the commands
+
 Dotnet
 
-// Create a new service project
-> dotnet new webapi -n PlatformService
+# Create a new service project
+-> dotnet new webapi -n PlatformService
 
-// open project in visual code
-> code -r PlatformService
-
+# open project in visual code
+-> code -r PlatformService
 
 
 Docker
 
-// to check version
-> docker --version
+# to check version
+-> docker --version
 
-// docker build -t <your docker hubid>/<service name> .
-> docker build -t siva4dockerstore/Platformservice .
+# docker build -t <your docker hubid>/<service name> .
+-> docker build -t siva4dockerstore/Platformservice .
 
-> docker run -p 8080:80 -d <docker hub id>/<service name>
-> docker ps
-> docker stop dd2
-> docker start dd2
-> docker push <docker hub id>/<service name>
+-> docker run -p 8080:80 -d <docker hub id>/<service name>
+-> docker ps
+-> docker stop dd2
+-> docker start dd2
+-> docker push <docker hub id>/<service name>
 
 Kubernet    
 
-> kubectl version
-> kubectl apply -f platforms-depl.yaml
+-> kubectl version
+
+-> kubectl apply -f platforms-depl.yaml
 --->deployment.apps/platforms-depl created
 
-> kubectl get deployments
-> kubectl get pods
+-> kubectl get deployments
 
-> kubectl delete deployments platforms-depl
+-> kubectl get pods
+->  kubectl get pods --namespace=ingress-nginx
+NAME                                      READY   STATUS      RESTARTS   AGE  
+ingress-nginx-admission-create-4hxrr      0/1     Completed   0          8m35s
+ingress-nginx-admission-patch-qcrjz       0/1     Completed   0          8m35s
+ingress-nginx-controller-54bfb9bb-ldltz   1/1     Running     0          8m35s
+
+-> kubectl delete deployments platforms-depl
 --->deployment.apps "platforms-depl" deleted
 
-> kubectl apply -f platforms-np-srv.yaml
+-> kubectl apply -f platforms-np-srv.yaml
 --->service/platformnpservice-srv created
 
-> kubectl get services
+-> kubectl get services
 
-➜  kubectl get deployments
+-> kubectl get deployments
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 platforms-depl   1/1     1            1           10d
 
 # Restart exisitng deployments
-➜  kubectl rollout restart deployment platforms-depl
+->  kubectl rollout restart deployment platforms-depl
 deployment.apps/platforms-depl restarted
+
+->  kubectl get namespace
+NAME              STATUS   AGE
+default           Active   10d
+ingress-nginx     Active   4m16s
+kube-node-lease   Active   10d
+kube-public       Active   10d
+kube-system       Active   10d

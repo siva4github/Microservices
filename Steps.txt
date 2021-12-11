@@ -18,3 +18,8 @@
     -- Redeploy platform service again in kubernate
     -- Restart exisitng deployments in kubernate
     -- Apply command service deployments in k8s
+- Integrating ingress nginx
+    -- google ingress nginx
+    -- open https://kubernetes.github.io/ingress-nginx/deploy/#docker-desktop
+    -- copy network load balancer for docker and run -- kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/aws/deploy.yaml
+    -- Run kubectl get namespace to see all
