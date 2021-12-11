@@ -11,3 +11,5 @@
     -- Create Interface and Service for HttpClient
     -- Add services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>(); in startup
     -- Update PlatformController to support messaging
+- Create Docker File and run docker for Command Service
+- Update platforms-depl.yaml file to support cluster IP
