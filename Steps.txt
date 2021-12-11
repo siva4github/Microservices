@@ -1,0 +1,13 @@
+- Create Platform Service with Service Ops (GetPlatforms, GetPlatformById, CreatePlatform)
+- Test Platform Service Ops in Postman
+- Create Docker File and run docker for Platform Service
+- Test Platform Service Ops in Postman for Docker
+- Create Kubernate deployment file for Platform Service
+- Create kubernate node service deployment file for Platform Service
+- Test Platform Service Ops in Postman for Kubernetes
+- Create CommandService with Service Ops
+- Test Service Ops in Postman
+- Update Platform Service to support messaging (SyncDataServices)
+    -- Create Interface and Service for HttpClient
+    -- Add services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>(); in startup
+    -- Update PlatformController to support messaging
