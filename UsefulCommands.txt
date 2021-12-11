@@ -26,12 +26,23 @@ Kubernet
 
 > kubectl version
 > kubectl apply -f platforms-depl.yaml
----deployment.apps/platforms-depl created
+--->deployment.apps/platforms-depl created
+
 > kubectl get deployments
 > kubectl get pods
+
 > kubectl delete deployments platforms-depl
----deployment.apps "platforms-depl" deleted
+--->deployment.apps "platforms-depl" deleted
 
 > kubectl apply -f platforms-np-srv.yaml
----service/platformnpservice-srv created
+--->service/platformnpservice-srv created
+
 > kubectl get services
+
+➜  kubectl get deployments
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+platforms-depl   1/1     1            1           10d
+
+# Restart exisitng deployments
+➜  kubectl rollout restart deployment platforms-depl
+deployment.apps/platforms-depl restarted

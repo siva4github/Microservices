@@ -13,3 +13,8 @@
     -- Update PlatformController to support messaging
 - Create Docker File and run docker for Command Service
 - Update platforms-depl.yaml file to support cluster IP
+- Create new appsettings.production.json in platform service and update command service entry point from k8s ClusterIP name
+    -- Build platform service docker and push it
+    -- Redeploy platform service again in kubernate
+    -- Restart exisitng deployments in kubernate
+    -- Apply command service deployments in k8s
