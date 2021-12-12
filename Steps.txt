@@ -22,4 +22,11 @@
     -- google ingress nginx
     -- open https://kubernetes.github.io/ingress-nginx/deploy/#docker-desktop
     -- copy network load balancer for docker and run -- kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/aws/deploy.yaml
-    -- Run kubectl get namespace to see all
+    -- Run kubectl get namespace to see all like nginx
+    -- Create ingress routing deployment file -- ingress-srv.yaml
+    -- Add host entry (acme.com as mentioned in ingress-srv.yaml) in c:\windows\system32\driver\host file
+        -- # Added by Siva for microservices r&d project
+        -- 127.0.0.1 acme.com
+    -- Deploy ingress-srv.yaml using - kubectl apply -f ingress-srv.yaml
+    
+- 
