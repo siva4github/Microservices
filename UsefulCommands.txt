@@ -8,6 +8,9 @@ Dotnet
 # open project in visual code
 -> code -r PlatformService
 
+# to generate migrations
+-> dotnet ef migrations add initialmigration
+
 
 Docker
 
