@@ -34,10 +34,6 @@ Kubernet
 
 -> kubectl get pods
 ->  kubectl get pods --namespace=ingress-nginx
-NAME                                      READY   STATUS      RESTARTS   AGE  
-ingress-nginx-admission-create-4hxrr      0/1     Completed   0          8m35s
-ingress-nginx-admission-patch-qcrjz       0/1     Completed   0          8m35s
-ingress-nginx-controller-54bfb9bb-ldltz   1/1     Running     0          8m35s
 
 -> kubectl delete deployments platforms-depl
 --->deployment.apps "platforms-depl" deleted
@@ -48,17 +44,28 @@ ingress-nginx-controller-54bfb9bb-ldltz   1/1     Running     0          8m35s
 -> kubectl get services
 
 -> kubectl get deployments
-NAME             READY   UP-TO-DATE   AVAILABLE   AGE
-platforms-depl   1/1     1            1           10d
 
 # Restart exisitng deployments
 ->  kubectl rollout restart deployment platforms-depl
 deployment.apps/platforms-depl restarted
 
 ->  kubectl get namespace
-NAME              STATUS   AGE
-default           Active   10d
-ingress-nginx     Active   4m16s
-kube-node-lease   Active   10d
-kube-public       Active   10d
-kube-system       Active   10d
+
+# Delete All
+-> kubectl delete all --all
+# Delete all with namespace
+-> kubectl delete all --all -n ingress-nginx
+
+# storage class
+->  kubectl get storageclass
+
+# PVC
+-> kubectl get pvc
+
+# Create secret
+-> kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+-> kubectl get secret
+
+CMD
+
+->  ipconfig /flushdns

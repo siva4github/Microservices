@@ -27,6 +27,10 @@
     -- Add host entry (acme.com as mentioned in ingress-srv.yaml) in c:\windows\system32\driver\host file
         -- # Added by Siva for microservices r&d project
         -- 127.0.0.1 acme.com
-    -- Deploy ingress-srv.yaml using - kubectl apply -f ingress-srv.yaml
-    
-- 
+    -- Deploy ingress-srv.yaml using - kubectl apply -f ingress-srv.yaml    
+- Implement Persistent Volume Claim support & mssql
+    -- Create new local-pvc.yaml in k8s
+    -- kubectl apply -f local-pvc.yaml
+    -- kubectl get pvc
+    -- kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+    -- create mssql-plat-depl.yaml file dedicated to platform services
