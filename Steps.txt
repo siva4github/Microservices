@@ -1,12 +1,12 @@
 - Create Platform Service with Service Ops (GetPlatforms, GetPlatformById, CreatePlatform)
-- Test Platform Service Ops in Postman
-- Create Docker File and run docker for Platform Service
-- Test Platform Service Ops in Postman for Docker
-- Create Kubernate deployment file for Platform Service
-- Create kubernate node service deployment file for Platform Service
-- Test Platform Service Ops in Postman for Kubernetes
+    - Test Platform Service Ops in Postman
+    - Create Docker File and run docker for Platform Service
+    - Test Platform Service Ops in Postman for Docker
+    - Create Kubernate deployment file for Platform Service
+    - Create kubernate node service deployment file for Platform Service
+    - Test Platform Service Ops in Postman for Kubernetes
 - Create CommandService with Service Ops
-- Test Service Ops in Postman
+    - Test Service Ops in Postman
 - Update Platform Service to support messaging (SyncDataServices)
     -- Create Interface and Service for HttpClient
     -- Add services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>(); in startup
@@ -35,3 +35,10 @@
     -- kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
     -- create mssql-plat-depl.yaml file dedicated to platform services
     -- kubectl apply -f mssql-plat-depl.yaml .. this will do mssql deployment/ cluster ip/ load balancer
+    -- Add SQL Server Connection string and update startup class with production and dev environment connections
+    -- Create migrations only for production
+    -- Generate migrations - dotnet ef migrations add initialmigration
+    -- build docker build ➜  docker build -t siva4dockerstore/platformservice . and publish
+    -- restart kube deployment
+- Multi-Resources URIs
+    -- 
