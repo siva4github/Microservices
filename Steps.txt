@@ -34,3 +34,4 @@
     -- kubectl get pvc
     -- kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
     -- create mssql-plat-depl.yaml file dedicated to platform services
+    -- kubectl apply -f mssql-plat-depl.yaml .. this will do mssql deployment/ cluster ip/ load balancer
