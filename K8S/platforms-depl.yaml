@@ -14,14 +14,7 @@ spec:
     spec:
       containers:
         - name: platformservice
-          image: binarythistle/platformservice:latest
-          resources:
-            requests:
-              memory: "64Mi"
-              cpu: "250m"
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
+          image: binarythistle/platformservice:latest          
 ---
 apiVersion: v1
 kind: Service
