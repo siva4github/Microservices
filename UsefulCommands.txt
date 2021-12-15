@@ -11,6 +11,9 @@ Dotnet
 # to generate migrations
 -> dotnet ef migrations add initialmigration
 
+# Add nuget reference
+-> dotnet add package RabbitMQ.Client
+
 
 Docker
 

@@ -13,6 +13,10 @@ namespace PlatformService.Profiles
             CreateMap<PlatformCreateDto, Platform>();
             CreateMap<Platform,PlatformReadDto>();
 
+            // After Rabbit
+            CreateMap<PlatformReadDto, PlatformPublishedDto>();
+
+
         }
     }
 }

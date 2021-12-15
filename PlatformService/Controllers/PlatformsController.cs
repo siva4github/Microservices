@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PlatformService.AsyncDataServices;
 using PlatformService.Dtos;
 using PlatformService.Interfaces;
 using PlatformService.Models;
@@ -17,12 +18,15 @@ namespace PlatformService.Controllers
         private readonly IPlatformRepo _repository;
         private readonly IMapper _mapper;
         private readonly ICommandDataClient _commandDataClient;
+        private readonly IMessageBusClient _messageBusClient;
 
-        public PlatformsController(IPlatformRepo repository, IMapper mapper, ICommandDataClient commandDataClient)
+        public PlatformsController(IPlatformRepo repository, IMapper mapper, 
+        ICommandDataClient commandDataClient, IMessageBusClient messageBusClient)
         {
             _mapper = mapper;
-            _commandDataClient = commandDataClient;
+            _commandDataClient = commandDataClient;            
             _repository = repository;
+            _messageBusClient = messageBusClient;
         }
 
         [HttpGet]
@@ -54,7 +58,7 @@ namespace PlatformService.Controllers
             var platformReadDto = _mapper.Map<PlatformReadDto>(platformModel);
 
             
-            // add this logic for messaging
+            // add this logic for send sync messaging
 
               try{
 
@@ -64,6 +68,24 @@ namespace PlatformService.Controllers
               {
                   Console.WriteLine($"--> Could not send synchronously: {e.Message}");
               }
+
+            // end
+
+
+            // add this logic for send sync messaging
+
+            try
+            {
+                var platformPublishedDto = _mapper.Map<PlatformPublishedDto>(platformReadDto);
+                platformPublishedDto.Event = "Platform_Published";
+                Console.WriteLine(platformPublishedDto.Event);                
+                _messageBusClient.PublishNewPlatform(platformPublishedDto);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine($"--> Could not send Asynchronously: {e.Message}");
+            }
+
 
             // end
 

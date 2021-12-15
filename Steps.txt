@@ -44,5 +44,12 @@
     -- Create Models Platform/Command
     -- Add DbContext, CommandRepo, DTOs, Profiles, DbContext in start up, ICommandRepo in start up
     -- Add service ops in CommandService --> PlatformController, CommandController
-
-
+- RabbitMQ
+    -- Create RabbitMQ deployment file and run kubectl
+    -- Try login http://localhost:15672 -- guest/guest
+    -- Add RabbitMQ reference in PlatformService ... 
+    -- Add RabbitHost in config both dev and prod
+    -- Create PlatformPublishedDto and update Automapper profile
+    -- Create AsyncDataServices --> IMessageBusClient,MessageBusClient and register in startup DI
+    -- Update PlatformController in Platform Service for AsyncMessaging
+    -- Test Service
