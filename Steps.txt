@@ -53,3 +53,13 @@
     -- Create AsyncDataServices --> IMessageBusClient,MessageBusClient and register in startup DI
     -- Update PlatformController in Platform Service for AsyncMessaging
     -- Test Service
+    -- Add RabbitMQ reference in CommandService
+    -- Add RabbitHost in config both dev and prod in CommandService
+    -- Create PlatformPublishedDto/GenericEventDto and update Automapper profile
+    -- Update ICommandRepo/ CommandRepo 
+    -- Create EventProcessing folder for RabbitMQ events and further development
+    -- Add services.AddSingleton<IEventProcessor, EventProcessor>();
+    -- Create AsyncDataServices folder and write MessageBusSubscriber class
+    -- Add services.AddHostedService<MessageBusSubscriber>();
+    -- Test CreatePlatform from PlatformService and check PlatformService and CommandService Console for messages
+    -- Run GetAllPlatforms in postman from CommandService and CreateCommandForPlatform
