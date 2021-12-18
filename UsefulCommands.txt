@@ -1,4 +1,4 @@
-# Free CHEAT SHEET - Will give all the commands
+# Free CHEAT SHEET - Will give all the commands cheatography
 
 Dotnet
 
@@ -14,6 +14,8 @@ Dotnet
 # Add nuget reference
 -> dotnet add package RabbitMQ.Client
 
+# to add git ignore
+-> dotnet new gitignore
 
 Docker
 

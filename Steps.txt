@@ -1,6 +1,6 @@
 - Create Platform Service with Service Ops (GetPlatforms, GetPlatformById, CreatePlatform)
     - Test Platform Service Ops in Postman
-    - Create Docker File and run docker for Platform Service
+    - Create Docker File and run docker for Platform Service (https://docs.docker.com/samples/dotnetcore/)
     - Test Platform Service Ops in Postman for Docker
     - Create Kubernate deployment file for Platform Service
     - Create kubernate node service deployment file for Platform Service
@@ -63,3 +63,27 @@
     -- Add services.AddHostedService<MessageBusSubscriber>();
     -- Test CreatePlatform from PlatformService and check PlatformService and CommandService Console for messages
     -- Run GetAllPlatforms in postman from CommandService and CreateCommandForPlatform
+    -- Build docker for both the services
+    -- Redeploy both the services in kubernetes deployments
+- gRPC
+    -- Updte ports in platforms-depl.yaml file in kubernetes, since config changes redeploy .depl file of platform
+    -- Add kestrel settings in platdorm service appsettings.production file
+    -- Add reference of Grpc.AspNetCore to platform service
+    -- To support gRPC in command service we need to add few references like Grpc.Tools, Grpc.Net.Client and Google.Protobuf
+    -- Start development Grpc Server in Platform Service
+    -- Crete Protos folder in Platform Service and platforms.proto
+    -- Update PlatformService.csproj with created proto details in ItemGroup as Server  .... build project and check obj for auto generated proto
+    -- Update PlatformService profile ... CreateMap<Platform, GrpcPlatformModel>()
+    -- Create Grpc folder in SyncDataServices and GrpcPlatformService.cs
+    -- Register grpc in StartUp .. services.AddGrpc(); and endpoints.MapGrpcService<GrpcPlatformService>();
+    -- Start development Grpc client in CommandService
+    -- Update appsettings .production/development for grpc
+    -- Crete Protos folder in command Service and platforms.proto (copy content same from platform service)
+    -- Update CommandService.csproj with created proto details in ItemGroup as Client .... build project and check obj for auto generated proto
+    -- Update CommandService profile ... CreateMap<GrpcPlatformModel,Platform>()
+    -- Create SyncDataServices\Grpc\IPlatformDataClient and its implementation
+    -- Register services.AddScoped<IPlatformDataClient, PlatformDataClient>(); in startup
+    -- Create PreDb seed data class and call it in startup
+    -- Build and run both services and test in postman with local get all platforms and create a new 
+    -- Build both service docker builds and restart kubernetes deployments
+- End
