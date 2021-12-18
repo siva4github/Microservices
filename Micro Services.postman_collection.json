@@ -1,0 +1,534 @@
+{
+	"info": {
+		"_postman_id": "262ac66a-f694-4ef2-b365-b3638ee8b6e6",
+		"name": "Micro Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Platform Service",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host5000}}/api/platforms",
+									"host": [
+										"{{host5000}}"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host5000}}/api/platforms/3",
+									"host": [
+										"{{host5000}}"
+									],
+									"path": [
+										"api",
+										"platforms",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"Node\",\r\n\t\"publisher\": \"Node\",\r\n\t\"cost\": \"Free\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host5000}}/api/platforms",
+									"host": [
+										"{{host5000}}"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Command Service",
+					"item": [
+						{
+							"name": "Test Inbound Connection",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host6000}}/api/c/platforms",
+									"host": [
+										"{{host6000}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host6000}}/api/c/platforms",
+									"host": [
+										"{{host6000}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Commands for Platform",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host6000}}/api/c/platforms/5/commands",
+									"host": [
+										"{{host6000}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"5",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Command For Platform",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host6000}}/api/c/platforms/1/commands/3",
+									"host": [
+										"{{host6000}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"1",
+										"commands",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Command For Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"HowTo\": \"Build a .net project\",\r\n    \"CommandLine\": \"dotnet build 1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host6000}}/api/c/platforms/5/commands",
+									"host": [
+										"{{host6000}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"5",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Docker",
+			"item": [
+				{
+					"name": "Platform Service",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"Node\",\r\n\t\"publisher\": \"Node\",\r\n\t\"cost\": \"Free\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{docker}}/api/platforms",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "k8s",
+			"item": [
+				{
+					"name": "Platform Service(Node Port)",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{kube}}/api/platforms",
+									"host": [
+										"{{kube}}"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"Node\",\r\n\t\"publisher\": \"Node\",\r\n\t\"cost\": \"Free\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{kube}}/api/platforms",
+									"host": [
+										"{{kube}}"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Platform Service (Nginx)",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{acme}}/api/platforms",
+									"host": [
+										"{{acme}}"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"Docker10\",\r\n\t\"publisher\": \"Docker1\",\r\n\t\"cost\": \"Free\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{acme}}/api/platforms",
+									"host": [
+										"{{acme}}"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Command Service (Nginx)",
+					"item": [
+						{
+							"name": "Test Inbound Connection",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{acme}}/api/c/platforms",
+									"host": [
+										"{{acme}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{acme}}/api/c/platforms",
+									"host": [
+										"{{acme}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Commands for Platform",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{acme}}/api/c/platforms/6/commands",
+									"host": [
+										"{{acme}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"6",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Command For Platform",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{acme}}/api/c/platforms/6/commands/3",
+									"host": [
+										"{{acme}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"6",
+										"commands",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Command For Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"HowTo\": \"Build a .net project\",\r\n    \"CommandLine\": \"dotnet build 3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{acme}}/api/c/platforms/6/commands",
+									"host": [
+										"{{acme}}"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"6",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
