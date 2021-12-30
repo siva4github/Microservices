@@ -72,7 +72,7 @@ namespace PlatformService.Controllers
             // end
 
 
-            // add this logic for send sync messaging
+            // add this logic for send async messaging
 
             try
             {
