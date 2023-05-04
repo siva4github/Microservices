@@ -1,0 +1,20 @@
+@baseUrl = http://localhost:5052/api
+
+
+#### Platform Service
+### Get App Platforms
+GET {{baseUrl}}/platform
+
+### Create Platform
+POST {{baseUrl}}/platform
+Content-Type: application/json
+
+{
+  "name": "C++",
+  "publisher": "CPP",
+  "cost": "Free"
+}
+
+### GetPlatformById
+GET {{baseUrl}}/platform/1
+
