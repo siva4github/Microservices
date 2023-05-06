@@ -1,9 +1,9 @@
 ### Localhost
-@baseUrl = http://localhost:5052/api
+# @baseUrl = http://localhost:5052/api
 ### Docker 
 # @baseUrl = http://localhost:8080/api
 ###
-# @baseUrl = http://localhost:31374/api
+@baseUrl = http://localhost:31374/api
 
 #### Platform Service
 ### Get App Platforms
