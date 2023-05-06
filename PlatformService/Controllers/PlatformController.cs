@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PlatformService.Data.Interfaces;
 using PlatformService.Dtos;
 using PlatformService.Entities;
+using PlatformService.SyncDataServices.Interfaces;
 
 namespace PlatformService.Controllers
 {
@@ -12,10 +13,12 @@ namespace PlatformService.Controllers
     {
         private readonly IPlatformRepo _repository;
         private readonly IMapper _mapper;
-        public PlatformController(IPlatformRepo repository, IMapper mapper)
+        private readonly ICommandDataClient _commandDataClient;
+        public PlatformController(IPlatformRepo repository, IMapper mapper, ICommandDataClient commandDataClient)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _commandDataClient = commandDataClient ?? throw new ArgumentNullException(nameof(commandDataClient));
         }
 
         [HttpPost]
@@ -24,10 +27,21 @@ namespace PlatformService.Controllers
             var platform = _mapper.Map<Platform>(platformCreateDto);
 
             await _repository.CreatePlatformAsync(platform);
-            if (await _repository.SaveChangesAsync())
-                return Ok();
+            await _repository.SaveChangesAsync();
 
-            return BadRequest();
+            var platformReadDto = _mapper.Map<PlatformReadDto>(platform);
+
+            try
+            {
+                await _commandDataClient.SendPlatformToCommandAsync(platformReadDto);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"--> Could not send synchronously : {e.Message} ");
+            }
+
+            return CreatedAtRoute(nameof(GetPlatformById), new { Id = platformReadDto.Id }, platformReadDto);
+
         }
 
         [HttpGet]
@@ -42,7 +56,7 @@ namespace PlatformService.Controllers
         {
             var platform = await _repository.GetPlatformByIdAsync(id);
 
-            if(platform == null) return NotFound();
+            if (platform == null) return NotFound();
 
             return Ok(platform);
         }
