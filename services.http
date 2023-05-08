@@ -2,15 +2,17 @@
 # @baseUrl = http://localhost:5052/api
 ### Docker 
 # @baseUrl = http://localhost:8080/api
-###
-@baseUrl = http://localhost:31374/api
+### Node Port
+# @baseUrl = http://localhost:31374/api
+### Ingress
+@baseUrl = https://iamsivas.com/api
 
 #### Platform Service
 ### Get App Platforms
-GET {{baseUrl}}/platform
+GET {{baseUrl}}/platforms
 
 ### Create Platform
-POST {{baseUrl}}/platform
+POST {{baseUrl}}/platforms
 Content-Type: application/json
 
 {
@@ -20,5 +22,5 @@ Content-Type: application/json
 }
 
 ### GetPlatformById
-GET {{baseUrl}}/platform/1
+GET {{baseUrl}}/platforms/1
 
