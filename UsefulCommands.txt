@@ -1,0 +1,79 @@
+# Free CHEAT SHEET - Will give all the commands cheatography
+
+Dotnet
+
+# Create a new service project
+-> dotnet new webapi -n PlatformService
+
+# open project in visual code
+-> code -r PlatformService
+
+# to generate migrations
+-> dotnet ef migrations add initialmigration
+
+# Add nuget reference
+-> dotnet add package RabbitMQ.Client
+
+# to add git ignore
+-> dotnet new gitignore
+
+Docker
+
+# to check version
+-> docker --version
+
+# docker build -t <your docker hubid>/<service name> .
+-> docker build -t siva4dockerstore/Platformservice .
+
+-> docker run -p 8080:80 -d <docker hub id>/<service name>
+-> docker ps
+-> docker stop dd2
+-> docker start dd2
+-> docker push <docker hub id>/<service name>
+
+Kubernet    
+
+-> kubectl version
+
+-> kubectl apply -f platforms-depl.yaml
+--->deployment.apps/platforms-depl created
+
+-> kubectl get deployments
+
+-> kubectl get pods
+->  kubectl get pods --namespace=ingress-nginx
+
+-> kubectl delete deployments platforms-depl
+--->deployment.apps "platforms-depl" deleted
+
+-> kubectl apply -f platforms-np-srv.yaml
+--->service/platformnpservice-srv created
+
+-> kubectl get services
+
+-> kubectl get deployments
+
+# Restart exisitng deployments
+->  kubectl rollout restart deployment platforms-depl
+deployment.apps/platforms-depl restarted
+
+->  kubectl get namespace
+
+# Delete All
+-> kubectl delete all --all
+# Delete all with namespace
+-> kubectl delete all --all -n ingress-nginx
+
+# storage class
+->  kubectl get storageclass
+
+# PVC
+-> kubectl get pvc
+
+# Create secret
+-> kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+-> kubectl get secret
+
+CMD
+
+->  ipconfig /flushdns
