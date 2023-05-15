@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace PlatformService.Data
 {
@@ -13,6 +14,9 @@ namespace PlatformService.Data
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
 
+                Console.WriteLine("--> Migration Process");
+                context.Database.Migrate();
+                
                 if (!context.Platforms.Any())
                 {
                     Console.WriteLine("--> Seed Data");

@@ -24,3 +24,8 @@ Content-Type: application/json
 ### GetPlatformById
 GET {{baseUrl}}/platforms/1
 
+
+## Get All Platforms
+## Get All Commands for a Platform
+## Get a command for a Platform
+## Create a Command for a Platform
