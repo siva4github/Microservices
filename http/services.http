@@ -1,0 +1,45 @@
+### Localhost
+@baseUrl = http://localhost:5052/api
+@baseUrl_C = http://localhost:5187/api
+### Docker 
+# @baseUrl = http://localhost:8080/api
+### Node Port
+# @baseUrl = http://localhost:31374/api
+### Ingress
+# @baseUrl = https://iamsivas.com/api
+
+#### Platform Service
+### Get App Platforms
+GET {{baseUrl}}/platforms
+
+### Create Platform
+POST {{baseUrl}}/platforms
+Content-Type: application/json
+
+{
+  "name": "C++",
+  "publisher": "CPP",
+  "cost": "Free"
+}
+
+### GetPlatformById
+GET {{baseUrl}}/platforms/1
+
+
+### Get All Platforms from CommandService
+GET {{baseUrl_C}}/c/platforms
+
+### Get All Commands for a Platform
+GET {{baseUrl_C}}/c/platforms/1/commands
+
+### Get a command for a Platform
+GET {{baseUrl_C}}/c/platforms/1/commands/1
+
+### Create a Command for a Platform
+POST {{baseUrl_C}}/c/platforms/1/commands
+Content-Type: application/json
+
+{
+  "howTo": "Build a .NET project",
+  "commandLine": "dotnet build"
+}

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/NET 6.0/CommandsService/CommandsService.csproj",
+                "${workspaceFolder}/CommandService.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/NET 6.0/CommandsService/CommandsService.csproj",
+                "${workspaceFolder}/CommandService.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/NET 6.0/CommandsService/CommandsService.csproj"
+                "${workspaceFolder}/CommandService.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
