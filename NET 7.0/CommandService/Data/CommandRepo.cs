@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CommandService.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -54,6 +50,11 @@ namespace CommandService.Data
         public async Task<bool> SaveChangesAsync()
         {
             return await _context.SaveChangesAsync() >= 0;
+        }
+
+        public async Task<bool> ExternalPlatformExistAsync(int externalPlatformId)
+        {
+            return await _context.Platforms.AnyAsync(p=> p.ExternalId == externalPlatformId);
         }
     }
 }

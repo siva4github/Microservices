@@ -17,7 +17,7 @@ POST {{baseUrl}}/platforms
 Content-Type: application/json
 
 {
-  "name": "C++",
+  "name": "Dart",
   "publisher": "CPP",
   "cost": "Free"
 }
@@ -30,13 +30,13 @@ GET {{baseUrl}}/platforms/1
 GET {{baseUrl_C}}/c/platforms
 
 ### Get All Commands for a Platform
-GET {{baseUrl_C}}/c/platforms/1/commands
+GET {{baseUrl_C}}/c/platforms/6/commands
 
 ### Get a command for a Platform
-GET {{baseUrl_C}}/c/platforms/1/commands/1
+GET {{baseUrl_C}}/c/platforms/6/commands/1
 
 ### Create a Command for a Platform
-POST {{baseUrl_C}}/c/platforms/1/commands
+POST {{baseUrl_C}}/c/platforms/6/commands
 Content-Type: application/json
 
 {

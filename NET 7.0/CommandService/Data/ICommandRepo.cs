@@ -19,5 +19,6 @@ namespace CommandService.Data
         Task CreateCommandAsync(Command command);
 
         Task<bool> SaveChangesAsync();
+        Task<bool> ExternalPlatformExistAsync(int externalPlatformId);
     }
 }
