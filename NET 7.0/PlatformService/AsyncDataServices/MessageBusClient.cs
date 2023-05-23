@@ -32,7 +32,7 @@ namespace PlatformService.AsyncDataServices
                 _channel = _connection.CreateModel();
                 _channel.QueueDeclare(queue: "platforms", durable: true, exclusive: false, autoDelete: true, arguments: null);
 
-                //_channel.ExchangeDeclare(exchange: "trigger", type: ExchangeType.Fanout);
+                _channel.ExchangeDeclare(exchange: "trigger", type: ExchangeType.Fanout);
 
                 _connection.ConnectionShutdown += RabbitMQ_ConnectionShutDown;
 

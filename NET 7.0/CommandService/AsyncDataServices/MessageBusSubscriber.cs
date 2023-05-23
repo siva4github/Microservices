@@ -27,7 +27,7 @@ namespace CommandService.AsyncDataServices
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
 
-            //_channel.ExchangeDeclare(exchange: "trigger", type: ExchangeType.Fanout);
+            _channel.ExchangeDeclare(exchange: "trigger", type: ExchangeType.Fanout);
             _queueName = _channel.QueueDeclare(queue: "platforms", durable: true, exclusive: false, autoDelete: true, arguments: null).QueueName;
 
             _channel.QueueBind(queue: _queueName, exchange: "trigger", routingKey: "");
